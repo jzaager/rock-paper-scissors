@@ -8,11 +8,10 @@
 
 let playerWeapon;
 
-// Prompt player for choice of weapon and store it in weapon variable
-let playerChoice = function() 
+// Prompt player for choice of weapon and store it in weapon variable as UPPERCASE
+function playerChoice() 
 {
   let input = prompt("Rock, Paper, or Scissors?");
-  // Force the input to uppercase
   playerWeapon = input.toUpperCase();
 
   if (playerWeapon === "ROCK" || playerWeapon === "PAPER" || playerWeapon === "SCISSORS")
@@ -20,6 +19,8 @@ let playerChoice = function()
     return playerWeapon;
   }
 
+  // THIS ONLY WORKS ONCE - CHANGE TO WHILE LOOP
+  // If playerWeapon != R, P, or S, continue prompting
   else 
   {
     input = prompt("Rock, Paper, or Scissors?");
@@ -28,7 +29,7 @@ let playerChoice = function()
   return playerWeapon;
 }
 
-let computerChoice = function ()
+function computerChoice()
 {
   let n = Math.floor((Math.random() * 3) + 1);
   let computerWeapon = (n === 1) ? "ROCK"
@@ -36,57 +37,58 @@ let computerChoice = function ()
     : "SCISSORS";
   return computerWeapon;
 }
-/*
-CPU selects R,P,S
-  Generate a random number 1, 2, or 3 to represent R,P,S
-    Math.floor((Math.random() *  3) + 1))
-    If number is 1
-      choice = rock
-    if number is 2
-      choice = paper
-    if number is 3
-      choice = scissors
-    return choice;
-/*
-Compare Player choice and CPU choice 
-switch (true) 
+
+
+// Compare Player choice and CPU choice 
+
+function playRound(computerChoice, playerChoice)
 {
-  case (playerChoice == rock && compChoice == paper): 
-    Message Computer wins!
-    break;
+  playerChoice = playerChoice();
+  console.log("Player chooses: " + playerChoice)
+  computerChoice = computerChoice();
+  console.log("Computer chooses: " + computerChoice)
+  let message = "";
 
-  case (playerChoice == rock && compChoice == scissors):
-    Message Player wins!
-    break;
-
-  case (playerChoice == paper && compChoice == rock):
-    Message Player wins!
-    break;
-
-  case (playerChoice == paper && compChoice == scissors):
-    Message Computer wins!
-    break;
-
-  case (playerChoice == scissors && compChoice == rock):
-    Message Computer wins!
-    break;
-
-  case (playerChoice == scissors && compChoice == paper):
-    Message Player wins!
-    break;
-
-  default:
-    Message It's a tie!
+   
+  if (playerChoice == "ROCK" && computerChoice == "PAPER")
+  {
+    message = "Computer wins!";
+  }
+  else if (playerChoice == "ROCK" && computerChoice == "SCISSORS")
+  {
+    message = "Player wins!";
+  }
+  else if (playerChoice == "PAPER" && computerChoice == "ROCK")
+  {
+    message = "Player wins!";
+  }
+  else if (playerChoice == "PAPER" && computerChoice == "SCISSORS")
+  {
+    message = "Computer wins!";
+  }
+  else if (playerChoice == "SCISSORS" && computerChoice == "ROCK")
+  {
+    message = "Computer wins!";
+  }
+  else if (playerChoice == "SCISSORS" && computerChoice === "PAPER")
+  {
+    message = "Player wins!";
+  }
+  // WHY IS THIS TRUE???
+  else if (playerChoice == computerChoice)
+  {
+    message = "It's a tie!"
+  }
+  /*else
+  {
+    message = "It's a tie!";
+  }
+  */
+  return message;
 }
 
-Return Message;
-
+/*
 Run the Round function 5 times
   (for let i = 0; i < 5; i++)
-  
-
-
-OUTPUT: Player RPS choice + CPU RPS choice
-        (round) Player win, CPU win, or Tie
 
         */

@@ -1,34 +1,31 @@
-/* Rock, Paper, Scissors!
+/*
+==============================
+    Rock, Paper, Scissors!
 ==============================
 * A game to be played entirely in the console (for now)
 * Choose Rock, Paper, or Scissors and see if you can 
 * beat the computer! Good luck!
 */
 
-
 let playerWeapon;
 
 // Prompt player for choice of weapon and store it in weapon variable as UPPERCASE
 function playerChoice() 
 {
-  let input = prompt("Rock, Paper, or Scissors?");
+  const input = prompt("Rock, Paper, or Scissors?");
   playerWeapon = input.toUpperCase();
 
   if (playerWeapon === "ROCK" || playerWeapon === "PAPER" || playerWeapon === "SCISSORS")
   {
     return playerWeapon;
   }
-
-  // THIS ONLY WORKS ONCE - CHANGE TO WHILE LOOP
-  // If playerWeapon != R, P, or S, continue prompting
-  else 
+  else
   {
-    input = prompt("Rock, Paper, or Scissors?");
-    playerWeapon = input.toUpperCase();
+    return playerChoice();
   }
-  return playerWeapon;
 }
 
+// Computer selects 1, 2, or 3 randomly, returns R, P, S
 function computerChoice()
 {
   let n = Math.floor((Math.random() * 3) + 1);
@@ -70,7 +67,7 @@ function playRound(computerChoice, playerChoice)
   {
     message = "Computer wins!";
   }
-  else if (playerChoice == "SCISSORS" && computerChoice === "PAPER")
+  else if (playerChoice == "SCISSORS" && computerChoice == "PAPER")
   {
     message = "Player wins!";
   }

@@ -5,22 +5,32 @@
 * beat the computer! Good luck!
 */
 
-//INPUT: Prompt Player for Rock, Paper, or Scissors and store value in variable
-//!!Allow input to be case insensitive!!
 
 let weapon;
 
 // Prompt player for choice of weapon and store it in weapon variable
-function playerChoice() 
+let playerChoice = function() 
 {
   let input = prompt("Rock, Paper, or Scissors?");
   // Force the input to uppercase
   weapon = input.toUpperCase();
+  if (weapon === "ROCK" || weapon === "PAPER" || weapon === "SCISSORS")
+  {
+    return weapon;
+  }
+  else 
+  {
+    input = prompt("Rock, Paper, or Scissors?");
+    weapon = input.toUpperCase();
+  }
   return weapon;
 }
-  
-
 /*
+let computerChoice = function ()
+{
+  let n = Math.floor((Math.random() * 3) + 1);
+  if (n ===)
+}
 CPU selects R,P,S
   Generate a random number 1, 2, or 3 to represent R,P,S
     Math.floor((Math.random() *  3) + 1))

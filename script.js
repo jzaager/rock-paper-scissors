@@ -6,31 +6,37 @@
 */
 
 
-let weapon;
+let playerWeapon;
 
 // Prompt player for choice of weapon and store it in weapon variable
 let playerChoice = function() 
 {
   let input = prompt("Rock, Paper, or Scissors?");
   // Force the input to uppercase
-  weapon = input.toUpperCase();
-  if (weapon === "ROCK" || weapon === "PAPER" || weapon === "SCISSORS")
+  playerWeapon = input.toUpperCase();
+
+  if (playerWeapon === "ROCK" || playerWeapon === "PAPER" || playerWeapon === "SCISSORS")
   {
-    return weapon;
+    return playerWeapon;
   }
+
   else 
   {
     input = prompt("Rock, Paper, or Scissors?");
-    weapon = input.toUpperCase();
+    playerWeapon = input.toUpperCase();
   }
-  return weapon;
+  return playerWeapon;
 }
-/*
+
 let computerChoice = function ()
 {
   let n = Math.floor((Math.random() * 3) + 1);
-  if (n ===)
+  let computerWeapon = (n === 1) ? "ROCK"
+    : (n === 2) ? "PAPER"
+    : "SCISSORS";
+  return computerWeapon;
 }
+/*
 CPU selects R,P,S
   Generate a random number 1, 2, or 3 to represent R,P,S
     Math.floor((Math.random() *  3) + 1))

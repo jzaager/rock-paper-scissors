@@ -78,15 +78,6 @@ function playRound(playerChoice, computerChoice)
   return message;
 }
 
-/*
-Run the Round function 5 times
-  (for let i = 0; i < 5; i++)
-  call the playRound function
-  create a counter for player
-  create a counter for computer
-  report a winner (first to 5 wins)
-*/
-
 function game()
 {
   let playerScore = 0;

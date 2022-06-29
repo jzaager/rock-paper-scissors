@@ -1,11 +1,11 @@
-/*
-==============================
-    Rock, Paper, Scissors!
-==============================
-* A game to be played entirely in the console (for now)
-* Choose Rock, Paper, or Scissors and see if you can 
-* beat the computer! Good luck!
-*/
+/*==============================
+ *    Rock, Paper, Scissors!
+ *==============================
+ *
+ * A game to be played entirely in the console (for now)
+ * Choose Rock, Paper, or Scissors and see if you can 
+ * beat the computer! Good luck!
+ */
 
 let playerWeapon;
 
@@ -47,33 +47,26 @@ function playRound(playerChoice, computerChoice)
   let message = "";
    
   if (playerChoice == "ROCK" && computerChoice == "PAPER")
-  {
     message = "Computer wins!";
-  }
+
   else if (playerChoice == "ROCK" && computerChoice == "SCISSORS")
-  {
     message = "Player wins!";
-  }
+
   else if (playerChoice == "PAPER" && computerChoice == "ROCK")
-  {
     message = "Player wins!";
-  }
+
   else if (playerChoice == "PAPER" && computerChoice == "SCISSORS")
-  {
     message = "Computer wins!";
-  }
+
   else if (playerChoice == "SCISSORS" && computerChoice == "ROCK")
-  {
     message = "Computer wins!";
-  }
+
   else if (playerChoice == "SCISSORS" && computerChoice == "PAPER")
-  {
     message = "Player wins!";
-  }
+
   else if (playerChoice === computerChoice)
-  {
     message = "It's a tie!";
-  }
+    
   console.log(message);
   return message;
 }

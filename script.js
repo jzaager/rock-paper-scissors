@@ -9,7 +9,7 @@
 
 let playerWeapon;
 
-// Prompt player for choice of weapon and store it in weapon variable as UPPERCASE
+// Prompt player for choice of weapon and store it in playerWeapon as UPPERCASE
 function playerChoice() 
 {
   const input = prompt("Rock, Paper, or Scissors?");
@@ -25,27 +25,26 @@ function playerChoice()
   }
 }
 
-// Computer selects 1, 2, or 3 randomly, returns R, P, S
+// Computer selects 1, 2, or 3 randomly, returns R, P, or S
 function computerChoice()
 {
-  let n = Math.floor((Math.random() * 3) + 1);
-  let computerWeapon = (n === 1) ? "ROCK"
+  const n = Math.floor((Math.random() * 3) + 1);
+  const computerWeapon = (n === 1) ? "ROCK"
     : (n === 2) ? "PAPER"
     : "SCISSORS";
   return computerWeapon;
 }
 
-
-// Compare Player choice and CPU choice 
-
-function playRound(computerChoice, playerChoice)
+// Compare Player choice and CPU choice and declare winner
+function playRound(playerChoice, computerChoice)
 {
   playerChoice = playerChoice();
   console.log("Player chooses: " + playerChoice)
+
   computerChoice = computerChoice();
   console.log("Computer chooses: " + computerChoice)
+  
   let message = "";
-
    
   if (playerChoice == "ROCK" && computerChoice == "PAPER")
   {
@@ -71,21 +70,56 @@ function playRound(computerChoice, playerChoice)
   {
     message = "Player wins!";
   }
-  // WHY IS THIS TRUE???
-  else if (playerChoice == computerChoice)
-  {
-    message = "It's a tie!"
-  }
-  /*else
+  else if (playerChoice === computerChoice)
   {
     message = "It's a tie!";
   }
-  */
+  console.log(message);
   return message;
 }
 
 /*
 Run the Round function 5 times
   (for let i = 0; i < 5; i++)
+  call the playRound function
+  create a counter for player
+  create a counter for computer
+  report a winner (first to 5 wins)
+*/
 
-        */
+function game()
+{
+  let playerScore = 0;
+  let computerScore = 0;
+  let finalWinner;
+
+  for (let i = 0; playerScore < 5 || computerScore < 5; i++)
+  {
+    let play = playRound(playerChoice, computerChoice);
+  
+    if (play === "Player wins!")
+      playerScore++;
+
+    else if (play === "Computer wins!")
+      computerScore++;
+
+    if (playerScore == 5)
+    {
+      finalWinner = "Player is the champion!";
+      console.log("Player Score: " + playerScore);
+      console.log("Computer Score is: " + computerScore);
+      return finalWinner;
+    }
+
+    if (computerScore == 5)
+    {
+      finalWinner = "Computer is the champion!";
+      console.log("Player Score: " + playerScore);
+      console.log("Computer Score is: " + computerScore);
+      return finalWinner;
+    }
+    console.log("Player Score: " + playerScore);
+    console.log("Computer Score is: " + computerScore);
+    console.log("\n");
+  }
+}

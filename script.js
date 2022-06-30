@@ -16,16 +16,13 @@ function playerChoice()
   playerWeapon = input.toUpperCase();
 
   if (playerWeapon === "ROCK" || playerWeapon === "PAPER" || playerWeapon === "SCISSORS")
-  {
     return playerWeapon;
-  }
+
   else
-  {
     return playerChoice();
-  }
 }
 
-// Computer selects 1, 2, or 3 randomly, returns R, P, or S
+// Computer selects 1, 2, or 3 randomly, returns ROCK, PAPER, or SCISSORS
 function computerChoice()
 {
   const n = Math.floor((Math.random() * 3) + 1);
@@ -77,6 +74,7 @@ function game()
   let computerScore = 0;
   let finalWinner;
 
+  // Loop through game until player or computer reach score of 5 
   for (let i = 0; playerScore < 5 || computerScore < 5; i++)
   {
     let play = playRound(playerChoice, computerChoice);

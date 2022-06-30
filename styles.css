@@ -1,0 +1,47 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ddd;
+  font-family: consolas, 'Courier New', Courier, monospace;
+  font-size: 1.3em;
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions {
+  text-align: left;
+  background-color:#eee;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px 0 gray;
+  margin: 0;
+  max-width: 75vw;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(197, 13, 142);
+}
+
+p {
+  text-align: left;
+  font-size: 0.85em;
+}
+
+.game {
+  color: rgb(197, 13, 142);
+  font-weight: bold;
+}
+
+ol {
+  font-weight: 500;
+}

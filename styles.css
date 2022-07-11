@@ -4,10 +4,18 @@ html {
 }
 
 body {
-  background-color: #ddd;
+  background-color: #f3f3f3;
   font-family: consolas, 'Courier New', Courier, monospace;
   font-size: 1.3em;
   height: 100%;
+  background-color:rgba(15, 15, 15, 0.952)
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: -1.5em;
+  color: rgb(216, 60, 138);
 }
 
 .container {
@@ -17,31 +25,23 @@ body {
   align-items: center;
 }
 
-.instructions {
-  text-align: left;
-  background-color:#eee;
-  padding: 10px;
+.player-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-select {
+  font-size: 3.4em;
+  padding: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.507);
+  background-color: rgba(0, 0, 0, 0.507);
   border-radius: 10px;
-  box-shadow: 0 3px 10px 0 gray;
-  margin: 0;
-  max-width: 75vw;
+  box-shadow: 0 0 5px 1px rgba(247, 26, 173, 0.418);
+  margin-bottom: 20px;
 }
 
-h2 {
-  text-align: center;
-  color: rgb(197, 13, 142);
-}
-
-p {
-  text-align: left;
-  font-size: 0.85em;
-}
-
-.game {
-  color: rgb(197, 13, 142);
-  font-weight: bold;
-}
-
-ol {
-  font-weight: 500;
+.player-select:hover {
+  border: 3px solid rgb(196, 28, 132);
+  font-size: 4em;
 }

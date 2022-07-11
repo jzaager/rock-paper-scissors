@@ -31,9 +31,11 @@ let computerChoice = function()
   return computerWeapon;
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
 // Compare Player choice and CPU choice and declare winner
-function playRound(a, b)
-{
+function playRound(a, b) {
   a = playerChoice();
   console.log("Player chooses: " + a);
   b = computerChoice();
@@ -41,14 +43,18 @@ function playRound(a, b)
    
   if ((a == "ROCK" && b == "PAPER") ||
       (a == "PAPER" && b == "SCISSORS") ||
-      (a == "SCISSORS" && b == "ROCK"))
-    return "Computer wins!";
-
+      (a == "SCISSORS" && b == "ROCK")) {
+        computerScore++;
+        return "Computer wins!";
+      }
+    
   else if ((a == "ROCK" && b == "SCISSORS") ||
       (a == "PAPER" && b == "ROCK") ||
-      (a == "SCISSORS" && b == "PAPER"))
-    return "Player wins!";
-
+      (a == "SCISSORS" && b == "PAPER")) {
+        playerScore++;
+        return "Player wins!";
+      }
+    
   else if (a === b)
     return "It's a tie!";
 }

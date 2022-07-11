@@ -8,14 +8,18 @@ body {
   font-family: consolas, 'Courier New', Courier, monospace;
   font-size: 1.3em;
   height: 100%;
-  background-color:rgba(15, 15, 15, 0.952)
+  background-color:rgb(22, 22, 22)
 }
 
 h1 {
   text-align: center;
   margin-top: 3rem;
   margin-bottom: -1.5em;
+  padding-bottom: 10px;
+  padding-top: 10px;
   color: rgb(216, 60, 138);
+  border-bottom: 2px solid rgb(184, 184, 184);
+  border-top: 2px solid rgb(184, 184, 184);
 }
 
 .container {
@@ -25,6 +29,27 @@ h1 {
   align-items: center;
 }
 
+.game-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 5em;
+  text-align: center;
+}
+
+h2 {
+  color: rgb(216, 60, 138);
+  border-bottom: 2px solid rgb(184, 184, 184);
+  border-top: 2px solid rgb(184, 184, 184);
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.score {
+  color: white;
+  font-size: 2em;
+}
+
 .player-buttons {
   display: flex;
   flex-direction: column;
@@ -32,6 +57,7 @@ h1 {
 }
 
 .player-select {
+  display: flex;
   font-size: 3.4em;
   padding: 20px;
   border: 3px solid rgba(0, 0, 0, 0.507);
@@ -43,5 +69,5 @@ h1 {
 
 .player-select:hover {
   border: 3px solid rgb(196, 28, 132);
-  font-size: 4em;
+  /*font-size: 3.2em;*/
 }

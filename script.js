@@ -43,22 +43,14 @@ function playRound(playerChoice, computerChoice)
   
   let message = "";
    
-  if (playerChoice == "ROCK" && computerChoice == "PAPER")
+  if ((playerChoice == "ROCK" && computerChoice == "PAPER") ||
+      (playerChoice == "PAPER" && computerChoice == "SCISSORS") ||
+      (playerChoice == "SCISSORS" && computerChoice == "ROCK"))
     message = "Computer wins!";
 
-  else if (playerChoice == "ROCK" && computerChoice == "SCISSORS")
-    message = "Player wins!";
-
-  else if (playerChoice == "PAPER" && computerChoice == "ROCK")
-    message = "Player wins!";
-
-  else if (playerChoice == "PAPER" && computerChoice == "SCISSORS")
-    message = "Computer wins!";
-
-  else if (playerChoice == "SCISSORS" && computerChoice == "ROCK")
-    message = "Computer wins!";
-
-  else if (playerChoice == "SCISSORS" && computerChoice == "PAPER")
+  else if ((playerChoice == "ROCK" && computerChoice == "SCISSORS") ||
+      (playerChoice == "PAPER" && computerChoice == "ROCK") ||
+      (playerChoice == "SCISSORS" && computerChoice == "PAPER"))
     message = "Player wins!";
 
   else if (playerChoice === computerChoice)

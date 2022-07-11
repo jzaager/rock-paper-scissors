@@ -10,20 +10,19 @@
 let playerWeapon;
 
 // Prompt player for choice of weapon and store it in playerWeapon as UPPERCASE
-function playerChoice() 
+let playerChoice = function() 
 {
   const input = prompt("Rock, Paper, or Scissors?");
   playerWeapon = input.toUpperCase();
 
   if (playerWeapon === "ROCK" || playerWeapon === "PAPER" || playerWeapon === "SCISSORS")
     return playerWeapon;
-
   else
     return playerChoice();
 }
 
 // Computer selects 1, 2, or 3 randomly, returns ROCK, PAPER, or SCISSORS
-function computerChoice()
+let computerChoice = function()
 {
   const n = Math.floor((Math.random() * 3) + 1);
   const computerWeapon = (n === 1) ? "ROCK"
@@ -33,34 +32,28 @@ function computerChoice()
 }
 
 // Compare Player choice and CPU choice and declare winner
-function playRound(playerChoice, computerChoice)
+function playRound(a, b)
 {
-  playerChoice = playerChoice();
-  console.log("Player chooses: " + playerChoice)
-
-  computerChoice = computerChoice();
-  console.log("Computer chooses: " + computerChoice)
-  
-  let message = "";
+  a = playerChoice();
+  console.log("Player chooses: " + a);
+  b = computerChoice();
+  console.log("Computer chooses: " + b);
    
-  if ((playerChoice == "ROCK" && computerChoice == "PAPER") ||
-      (playerChoice == "PAPER" && computerChoice == "SCISSORS") ||
-      (playerChoice == "SCISSORS" && computerChoice == "ROCK"))
-    message = "Computer wins!";
+  if ((a == "ROCK" && b == "PAPER") ||
+      (a == "PAPER" && b == "SCISSORS") ||
+      (a == "SCISSORS" && b == "ROCK"))
+    return "Computer wins!";
 
-  else if ((playerChoice == "ROCK" && computerChoice == "SCISSORS") ||
-      (playerChoice == "PAPER" && computerChoice == "ROCK") ||
-      (playerChoice == "SCISSORS" && computerChoice == "PAPER"))
-    message = "Player wins!";
+  else if ((a == "ROCK" && b == "SCISSORS") ||
+      (a == "PAPER" && b == "ROCK") ||
+      (a == "SCISSORS" && b == "PAPER"))
+    return "Player wins!";
 
-  else if (playerChoice === computerChoice)
-    message = "It's a tie!";
-    
-  console.log(message);
-  return message;
+  else if (a === b)
+    return "It's a tie!";
 }
 
-function game()
+/* function game()
 {
   let playerScore = 0;
   let computerScore = 0;
@@ -96,4 +89,4 @@ function game()
     console.log("Computer Score is: " + computerScore);
     console.log("\n");
   }
-}
+} */

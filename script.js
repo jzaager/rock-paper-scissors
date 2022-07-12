@@ -21,6 +21,22 @@ let playerChoice = function()
     return playerChoice();
 } */
 
+// ROCK
+const rockButton = document.getElementById('rock');
+rockButton.addEventListener('click', playRound);
+
+// PAPER
+const paperButton = document.getElementById('paper');
+paperButton.addEventListener('click', playRound);
+
+// SCISSORS
+const scissorsButton = document.getElementById('scissors');
+scissorsButton.addEventListener('click', playRound);
+
+playerChoice = document.getElementById('player-choice');
+computerSelect = document.getElementById('computer-select');
+
+
 let playerScore = 0;
 let computerScore = 0;
 const playerPoints = document.getElementById('player-score');
@@ -38,10 +54,15 @@ function computerChoice()
 
 // Compare Player choice and CPU choice and declare winner
 function playRound(e, computerSelection) {
+  playerChoice.textContent = '';
+  computerSelect.textContent = '';
+
   playerSelection = e.target.id.toUpperCase();
   computerSelection = computerChoice();
-  console.log("Player chooses: " + playerSelection);
-  console.log("Computer chooses: " + computerSelection);
+
+  playerChoice.textContent += `Player Chose: ${playerSelection}`;
+  computerSelect.textContent += `Computer Chose: ${computerSelection}`;
+
    
   if ((playerSelection == "ROCK" && computerSelection == "PAPER") ||
       (playerSelection == "PAPER" && computerSelection == "SCISSORS") ||
@@ -62,17 +83,7 @@ function playRound(e, computerSelection) {
   else if (playerSelection === computerSelection)
     return console.log("It's a tie!");
 }
-// ROCK
-const rockButton = document.getElementById('rock');
-rockButton.addEventListener('click', playRound);
 
-// PAPER
-const paperButton = document.getElementById('paper');
-paperButton.addEventListener('click', playRound);
-
-// SCISSORS
-const scissorsButton = document.getElementById('scissors');
-scissorsButton.addEventListener('click', playRound);
 
 
 /* function game()

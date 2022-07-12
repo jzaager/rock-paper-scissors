@@ -1,4 +1,5 @@
-// Rock, paper, scissors buttons event listeners
+
+// Rock, paper, scissors buttons & event listeners
 const rockButton = document.getElementById('rock');
 const paperButton = document.getElementById('paper');
 const scissorsButton = document.getElementById('scissors');
@@ -12,6 +13,7 @@ const computerSelect = document.getElementById('computer-select');
 
 // Winner and restart button
 const printWinner = document.getElementById('print-winner');
+const finalWinner = document.querySelector('#print-winner');
 const newBtn = document.createElement('button');
 newBtn.addEventListener('click', resetScore);
 
@@ -20,6 +22,14 @@ let playerScore = 0;
 let computerScore = 0;
 const playerPoints = document.getElementById('player-score');
 const computerPoints = document.getElementById('computer-score');
+
+function gameOver(winner){
+  printWinner.textContent = `${winner} won!`; 
+  newBtn.classList = 'play-again';
+  newBtn.textContent = 'Play again?';
+  printWinner.appendChild(newBtn);
+  return;
+}
 
 function resetScore(){
   playerChoice.textContent = '';
@@ -43,48 +53,46 @@ function computerChoice()
 
 // Compare Player choice and CPU choice and declare winner
 function playRound(e, computerSelection) {
-  playerChoice.textContent = '';
-  computerSelect.textContent = '';
-  playerSelection = e.target.id.toUpperCase();
-  computerSelection = computerChoice();
 
-  if (playerScore === 5) {
-    printWinner.textContent = "Player won!";
-    const finalWinner = document.querySelector('#print-winner');
-    newBtn.classList = 'play-again';
-    newBtn.textContent = 'Play again?';
-    finalWinner.appendChild(newBtn);
+  if (playerScore > 4 || computerScore > 4)
     return;
-  }
-
-  if (computerScore === 5) {
-    printWinner.textContent = "Computer won!";
-    const finalWinner = document.querySelector('#print-winner');
-    newBtn.classList = 'play-again';
-    newBtn.textContent = 'Play again?';
-    finalWinner.appendChild(newBtn);
-    return;
-  }
   
-  playerChoice.textContent += `Player Chose: ${playerSelection}`;
-  computerSelect.textContent += `Computer Chose: ${computerSelection}`;
-   
-  if ((playerSelection == "ROCK" && computerSelection == "PAPER") ||
-      (playerSelection == "PAPER" && computerSelection == "SCISSORS") ||
-      (playerSelection == "SCISSORS" && computerSelection == "ROCK")) {
-        computerScore++;
-        computerPoints.textContent = computerScore;
-        return printWinner.textContent = "Computer wins!";
-      }
+  else {
+    playerChoice.textContent = '';
+    computerSelect.textContent = '';
+    playerSelection = e.target.id.toUpperCase();
+    computerSelection = computerChoice();
     
-  else if ((playerSelection == "ROCK" && computerSelection == "SCISSORS") ||
-      (playerSelection == "PAPER" && computerSelection == "ROCK") ||
-      (playerSelection == "SCISSORS" && computerSelection == "PAPER")) {
-        playerScore++;
-        playerPoints.textContent = playerScore;;
-        return printWinner.textContent = "Player wins!";
-      }
+    playerChoice.textContent += `Player Chose: ${playerSelection}`;
+    computerSelect.textContent += `Computer Chose: ${computerSelection}`;
     
-  else if (playerSelection === computerSelection)
-    return printWinner.textContent = "It's a tie!";
+    if ((playerSelection == "ROCK" && computerSelection == "PAPER") ||
+        (playerSelection == "PAPER" && computerSelection == "SCISSORS") ||
+        (playerSelection == "SCISSORS" && computerSelection == "ROCK")) {
+          ++computerScore;
+          computerPoints.textContent = computerScore;
+          
+          if (computerScore > 4){
+            return gameOver("Computer"); 
+          } 
+
+          return printWinner.textContent = "Computer wins!";
+        }
+      
+    else if ((playerSelection == "ROCK" && computerSelection == "SCISSORS") ||
+        (playerSelection == "PAPER" && computerSelection == "ROCK") ||
+        (playerSelection == "SCISSORS" && computerSelection == "PAPER")) {
+          ++playerScore;
+          playerPoints.textContent = playerScore;
+          
+          if (playerScore > 4){
+            return gameOver("Player");
+          }
+          
+          return printWinner.textContent = "Player wins!";
+        }
+      
+    else if (playerSelection === computerSelection)
+      return printWinner.textContent = "It's a tie!";
+  }
 }

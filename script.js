@@ -35,7 +35,7 @@ scissorsButton.addEventListener('click', playRound);
 
 playerChoice = document.getElementById('player-choice');
 computerSelect = document.getElementById('computer-select');
-
+printWinner = document.getElementById('print-winner');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -63,13 +63,24 @@ function playRound(e, computerSelection) {
   playerChoice.textContent += `Player Chose: ${playerSelection}`;
   computerSelect.textContent += `Computer Chose: ${computerSelection}`;
 
+  if (playerScore === 5) {
+    // TODO: ADD PLAY AGAIN? BUTTON
+    
+    return printWinner.textContent = "Player wins!";
+  }
+
+  if (computerScore === 5) {
+
+    return printWinner.textContent = "Computer wins!";
+  }
+    
    
   if ((playerSelection == "ROCK" && computerSelection == "PAPER") ||
       (playerSelection == "PAPER" && computerSelection == "SCISSORS") ||
       (playerSelection == "SCISSORS" && computerSelection == "ROCK")) {
         computerScore++;
         computerPoints.textContent = computerScore;
-        return console.log("Computer wins!");
+        return printWinner.textContent = "Computer wins!";
       }
     
   else if ((playerSelection == "ROCK" && computerSelection == "SCISSORS") ||
@@ -77,13 +88,12 @@ function playRound(e, computerSelection) {
       (playerSelection == "SCISSORS" && computerSelection == "PAPER")) {
         playerScore++;
         playerPoints.textContent = playerScore;;
-        return console.log("Player wins!");
+        return printWinner.textContent = "Player wins!";
       }
     
   else if (playerSelection === computerSelection)
-    return console.log("It's a tie!");
+    return printWinner.textContent = "It's a tie!";
 }
-
 
 
 /* function game()

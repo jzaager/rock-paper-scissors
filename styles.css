@@ -25,6 +25,7 @@ h1 {
 .container {
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -46,7 +47,7 @@ h2 {
   margin: 0;
 }
 
-.score {
+.score, #print-winner {
   color: white;
   font-size: 2.5em;
   margin: 0;
@@ -90,4 +91,5 @@ h2 {
 
 .placeholder {
   color: rgba(0, 0, 0, 0);
+  display: none; 
 }

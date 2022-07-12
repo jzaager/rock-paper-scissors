@@ -1,46 +1,35 @@
-/*==============================
- *    Rock, Paper, Scissors!
- *==============================
- *
- * A game to be played entirely in the console (for now)
- * Choose Rock, Paper, or Scissors and see if you can 
- * beat the computer! Good luck!
- */
-
-/* let playerWeapon;
-
-// Prompt player for choice of weapon and store it in playerWeapon as UPPERCASE
-let playerChoice = function() 
-{
-  const input = prompt("Rock, Paper, or Scissors?");
-  playerWeapon = input.toUpperCase();
-
-  if (playerWeapon === "ROCK" || playerWeapon === "PAPER" || playerWeapon === "SCISSORS")
-    return playerWeapon;
-  else
-    return playerChoice();
-} */
-
-// ROCK
+// Rock, paper, scissors buttons event listeners
 const rockButton = document.getElementById('rock');
-rockButton.addEventListener('click', playRound);
-
-// PAPER
 const paperButton = document.getElementById('paper');
-paperButton.addEventListener('click', playRound);
-
-// SCISSORS
 const scissorsButton = document.getElementById('scissors');
+rockButton.addEventListener('click', playRound);
+paperButton.addEventListener('click', playRound);
 scissorsButton.addEventListener('click', playRound);
 
-playerChoice = document.getElementById('player-choice');
-computerSelect = document.getElementById('computer-select');
-printWinner = document.getElementById('print-winner');
+// Player and computer "weapon" choices text
+const playerChoice = document.getElementById('player-choice');
+const computerSelect = document.getElementById('computer-select');
 
+// Winner and restart button
+const printWinner = document.getElementById('print-winner');
+const newBtn = document.createElement('button');
+newBtn.addEventListener('click', resetScore);
+
+// Score
 let playerScore = 0;
 let computerScore = 0;
 const playerPoints = document.getElementById('player-score');
 const computerPoints = document.getElementById('computer-score');
+
+function resetScore(){
+  playerChoice.textContent = '';
+  computerSelect.textContent = '';
+  printWinner.textContent = '';
+  playerScore = 0;
+  computerScore = 0;
+  playerPoints.textContent = '0';
+  computerPoints.textContent = '0';
+}
 
 // Computer selects 1, 2, or 3 randomly, returns ROCK, PAPER, or SCISSORS
 function computerChoice()
@@ -56,15 +45,12 @@ function computerChoice()
 function playRound(e, computerSelection) {
   playerChoice.textContent = '';
   computerSelect.textContent = '';
-
   playerSelection = e.target.id.toUpperCase();
   computerSelection = computerChoice();
 
   if (playerScore === 5) {
-    // TODO: ADD PLAY AGAIN? BUTTON
     printWinner.textContent = "Player won!";
     const finalWinner = document.querySelector('#print-winner');
-    newBtn = document.createElement('button');
     newBtn.classList = 'play-again';
     newBtn.textContent = 'Play again?';
     finalWinner.appendChild(newBtn);
@@ -72,9 +58,12 @@ function playRound(e, computerSelection) {
   }
 
   if (computerScore === 5) {
-    // TODO: ADD PLAY AGAIN? BUTTON
-    
-    return printWinner.textContent = "Computer won!";
+    printWinner.textContent = "Computer won!";
+    const finalWinner = document.querySelector('#print-winner');
+    newBtn.classList = 'play-again';
+    newBtn.textContent = 'Play again?';
+    finalWinner.appendChild(newBtn);
+    return;
   }
   
   playerChoice.textContent += `Player Chose: ${playerSelection}`;
@@ -99,42 +88,3 @@ function playRound(e, computerSelection) {
   else if (playerSelection === computerSelection)
     return printWinner.textContent = "It's a tie!";
 }
-
-
-/* function game()
-{
-  let playerScore = 0;
-  let computerScore = 0;
-  let finalWinner;
-
-  // Loop through game until player or computer reach score of 5 
-  for (let i = 0; playerScore < 5 || computerScore < 5; i++)
-  {
-    let play = playRound(playerChoice, computerChoice);
-  
-    if (play === "Player wins!")
-      playerScore++;
-
-    else if (play === "Computer wins!")
-      computerScore++;
-
-    if (playerScore == 5)
-    {
-      finalWinner = "Player is the champion!";
-      console.log("Player Score: " + playerScore);
-      console.log("Computer Score is: " + computerScore);
-      return finalWinner;
-    }
-
-    if (computerScore == 5)
-    {
-      finalWinner = "Computer is the champion!";
-      console.log("Player Score: " + playerScore);
-      console.log("Computer Score is: " + computerScore);
-      return finalWinner;
-    }
-    console.log("Player Score: " + playerScore);
-    console.log("Computer Score is: " + computerScore);
-    console.log("\n");
-  }
-} */

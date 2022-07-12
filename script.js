@@ -13,7 +13,6 @@ const computerSelect = document.getElementById('computer-select');
 
 // Winner and restart button
 const printWinner = document.getElementById('print-winner');
-const finalWinner = document.querySelector('#print-winner');
 const newBtn = document.createElement('button');
 newBtn.addEventListener('click', resetScore);
 

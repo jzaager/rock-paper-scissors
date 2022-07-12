@@ -62,8 +62,13 @@ function playRound(e, computerSelection) {
 
   if (playerScore === 5) {
     // TODO: ADD PLAY AGAIN? BUTTON
-    
-    return printWinner.textContent = "Player won!";
+    printWinner.textContent = "Player won!";
+    const finalWinner = document.querySelector('#print-winner');
+    newBtn = document.createElement('button');
+    newBtn.classList = 'play-again';
+    newBtn.textContent = 'Play again?';
+    finalWinner.appendChild(newBtn);
+    return;
   }
 
   if (computerScore === 5) {

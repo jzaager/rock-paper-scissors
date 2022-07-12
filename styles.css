@@ -36,7 +36,7 @@ h1 {
   align-items: flex-end;
   gap: 5em;
   text-align: center;
-  padding-top: 2em;
+  padding-top: 1em;
 }
 
 h2 {
@@ -53,6 +53,12 @@ h2 {
   margin: 0;
 } 
 
+#print-winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .player-buttons {
   display: flex;
   flex-direction: column;
@@ -60,7 +66,6 @@ h2 {
 }
 
 .player-select {
-  display: flex;
   font-size: 3.4em;
   padding: 20px;
   border: 3px solid rgba(0, 0, 0, 0.507);
@@ -70,7 +75,19 @@ h2 {
   margin-bottom: 20px;
 }
 
-.player-select:hover {
+.play-again {
+  font-size: 0.6em;
+  color: white;
+  border: 3px solid rgba(0, 0, 0, 0.507);
+  background-color: rgba(0, 0, 0, 0.507);
+  box-shadow: 0 0 5px 1px rgba(247, 26, 173, 0.418);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  max-width: 75%;
+}
+
+.player-select:hover, .play-again:hover {
   border: 3px solid rgb(196, 28, 132);
   /*font-size: 3.2em;*/
 }

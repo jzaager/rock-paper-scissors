@@ -39,7 +39,7 @@ h1 {
 
 h2 {
   color: rgb(216, 60, 138);
-  border-bottom: 2px solid rgb(184, 184, 184);
+  /*border-bottom: 2px solid rgb(184, 184, 184);*/
   border-top: 2px solid rgb(184, 184, 184);
   padding-bottom: 10px;
   padding-top: 10px;

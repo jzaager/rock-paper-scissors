@@ -7,7 +7,7 @@
  * beat the computer! Good luck!
  */
 
-let playerWeapon;
+/* let playerWeapon;
 
 // Prompt player for choice of weapon and store it in playerWeapon as UPPERCASE
 let playerChoice = function() 
@@ -19,7 +19,7 @@ let playerChoice = function()
     return playerWeapon;
   else
     return playerChoice();
-}
+} */
 
 // Computer selects 1, 2, or 3 randomly, returns ROCK, PAPER, or SCISSORS
 let computerChoice = function()
@@ -33,10 +33,12 @@ let computerChoice = function()
 
 let playerScore = 0;
 let computerScore = 0;
+const playerPoints = document.getElementById('player-score');
+const computerPoints = document.getElementById('computer-score');
 
 // Compare Player choice and CPU choice and declare winner
 function playRound(a, b) {
-  a = playerChoice();
+  a = playerRock;
   console.log("Player chooses: " + a);
   b = computerChoice();
   console.log("Computer chooses: " + b);
@@ -45,19 +47,36 @@ function playRound(a, b) {
       (a == "PAPER" && b == "SCISSORS") ||
       (a == "SCISSORS" && b == "ROCK")) {
         computerScore++;
-        return "Computer wins!";
+        computerPoints.textContent = computerScore;
+        return console.log("Computer wins!");
       }
     
   else if ((a == "ROCK" && b == "SCISSORS") ||
       (a == "PAPER" && b == "ROCK") ||
       (a == "SCISSORS" && b == "PAPER")) {
         playerScore++;
-        return "Player wins!";
+        playerPoints.textContent = playerScore;;
+        return console.log("Player wins!");
       }
     
   else if (a === b)
-    return "It's a tie!";
+    return console.log("It's a tie!");
 }
+// ROCK
+const rockButton = document.getElementById('rock');
+const playerRock = rockButton.id.toUpperCase();
+rockButton.addEventListener('click', playRound);
+
+// PAPER
+const paperButton = document.getElementById('paper');
+const playerPaper = paperButton.id.toUpperCase();
+paperButton.addEventListener('click', playRound);
+
+// SCISSORS
+const scissorsButton = document.getElementById('scissors');
+const playerscissors = scissorsButton.id.toUpperCase();
+scissorsButton.addEventListener('click', playRound);
+
 
 /* function game()
 {

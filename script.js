@@ -21,8 +21,13 @@ let playerChoice = function()
     return playerChoice();
 } */
 
+let playerScore = 0;
+let computerScore = 0;
+const playerPoints = document.getElementById('player-score');
+const computerPoints = document.getElementById('computer-score');
+
 // Computer selects 1, 2, or 3 randomly, returns ROCK, PAPER, or SCISSORS
-let computerChoice = function()
+function computerChoice()
 {
   const n = Math.floor((Math.random() * 3) + 1);
   const computerWeapon = (n === 1) ? "ROCK"
@@ -31,50 +36,42 @@ let computerChoice = function()
   return computerWeapon;
 }
 
-let playerScore = 0;
-let computerScore = 0;
-const playerPoints = document.getElementById('player-score');
-const computerPoints = document.getElementById('computer-score');
-
 // Compare Player choice and CPU choice and declare winner
-function playRound(a, b) {
-  a = playerRock;
-  console.log("Player chooses: " + a);
-  b = computerChoice();
-  console.log("Computer chooses: " + b);
+function playRound(e, computerSelection) {
+  playerSelection = e.target.id.toUpperCase();
+  computerSelection = computerChoice();
+  console.log("Player chooses: " + playerSelection);
+  console.log("Computer chooses: " + computerSelection);
    
-  if ((a == "ROCK" && b == "PAPER") ||
-      (a == "PAPER" && b == "SCISSORS") ||
-      (a == "SCISSORS" && b == "ROCK")) {
+  if ((playerSelection == "ROCK" && computerSelection == "PAPER") ||
+      (playerSelection == "PAPER" && computerSelection == "SCISSORS") ||
+      (playerSelection == "SCISSORS" && computerSelection == "ROCK")) {
         computerScore++;
         computerPoints.textContent = computerScore;
         return console.log("Computer wins!");
       }
     
-  else if ((a == "ROCK" && b == "SCISSORS") ||
-      (a == "PAPER" && b == "ROCK") ||
-      (a == "SCISSORS" && b == "PAPER")) {
+  else if ((playerSelection == "ROCK" && computerSelection == "SCISSORS") ||
+      (playerSelection == "PAPER" && computerSelection == "ROCK") ||
+      (playerSelection == "SCISSORS" && computerSelection == "PAPER")) {
         playerScore++;
         playerPoints.textContent = playerScore;;
         return console.log("Player wins!");
       }
     
-  else if (a === b)
+  else if (playerSelection === computerSelection)
     return console.log("It's a tie!");
 }
 // ROCK
 const rockButton = document.getElementById('rock');
-const playerRock = rockButton.id.toUpperCase();
 rockButton.addEventListener('click', playRound);
 
 // PAPER
 const paperButton = document.getElementById('paper');
-const playerPaper = paperButton.id.toUpperCase();
 paperButton.addEventListener('click', playRound);
 
 // SCISSORS
 const scissorsButton = document.getElementById('scissors');
-const playerscissors = scissorsButton.id.toUpperCase();
 scissorsButton.addEventListener('click', playRound);
 
 

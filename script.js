@@ -60,20 +60,20 @@ function playRound(e, computerSelection) {
   playerSelection = e.target.id.toUpperCase();
   computerSelection = computerChoice();
 
-  playerChoice.textContent += `Player Chose: ${playerSelection}`;
-  computerSelect.textContent += `Computer Chose: ${computerSelection}`;
-
   if (playerScore === 5) {
     // TODO: ADD PLAY AGAIN? BUTTON
     
-    return printWinner.textContent = "Player wins!";
+    return printWinner.textContent = "Player won!";
   }
 
   if (computerScore === 5) {
-
-    return printWinner.textContent = "Computer wins!";
-  }
+    // TODO: ADD PLAY AGAIN? BUTTON
     
+    return printWinner.textContent = "Computer won!";
+  }
+  
+  playerChoice.textContent += `Player Chose: ${playerSelection}`;
+  computerSelect.textContent += `Computer Chose: ${computerSelection}`;
    
   if ((playerSelection == "ROCK" && computerSelection == "PAPER") ||
       (playerSelection == "PAPER" && computerSelection == "SCISSORS") ||

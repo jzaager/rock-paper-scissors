@@ -1,7 +1,5 @@
 # rock-paper-scissors
 
-A simple rock, paper, scissors game developed only in JavaScript (for now).
+A simple rock, paper, scissors game now with a UI!
 
-The .html file will be blank and revisited later.
-
-The game will be played in the console.
+The rest should be self explanatory. Thanks for playing.
